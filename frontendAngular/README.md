@@ -1,59 +1,62 @@
-# HiddenStudio
+Hidden Studio - Frontend
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.0.3.
+Esta es la web desarrollado en Angular para la plataforma Hidden Studio, una interfaz interactiva que permite a los usuarios explorar juegos, gestionar su inventario y sincronizar su progreso en tiempo real con Unity.
 
-## Development server
+Descripción del Proyecto
 
-To start a local development server, run:
+El frontend actúa como el núcleo de la experiencia del usuario, ofreciendo:
 
-```bash
+- Catálogo de Juegos: Visualización dinámica de juegos disponibles.
+- Integración con Unity: Comunicación bidireccional entre la web y los juegos WebGL (envío de puntuaciones e ítems).
+- Gestión de Inventario: Visualización de objetos obtenidos dentro de los juegos.
+- Seguridad: Gestión de sesiones mediante JWT (JSON Web Tokens).
+- Reactividad: Uso de Angular Signals para una gestión de estado eficiente y rápida.
+
+API Externa Utilizada
+
+Para enriquecer la base de datos de juegos y contenidos, el proyecto se apoya en:
+- RAWG Video Games Database API: Utilizada para obtener metadatos de juegos, imágenes de alta resolución, fechas de lanzamiento y valoraciones de la crítica.
+
+Descripción del Backend
+
+El frontend se comunica con un ecosistema de microservicios diseñado para la escalabilidad:
+- Tecnología: Java 21 con Spring Boot 3.
+- Base de Datos: * MongoDB: Almacena el progreso de los juegos (GameProgress), puntuaciones máximas y el inventario de los usuarios.
+- Seguridad: Filtros JWT personalizados y configuración de CORS para permitir la comunicación segura con el dominio de desarrollo y producción.
+
+Instrucciones de Ejecución
+
+Requisitos Previos
+
+- Node.js: Versión 18.x o superior.
+- Angular CLI: Versión 17.x o superior.
+- Backend: El servidor Spring Boot debe estar corriendo en http://localhost:8080.
+
+Instalación
+
+Clona el repositorio:
+
+Bash
+git clone [https://github.com/angelaShc/proyecto2xtart.git](https://github.com/angelaShc/proyecto2xtart.git)
+cd proyecto2xtart
+
+Instala las dependencias:
+
+Bash
+npm install
+Configuración del Entorno
+Crea o edita el archivo src/environments/environment.ts para apuntar a la API:
+
+TypeScript
+export const environment = {
+  production: false,
+  apiUrl: 'http://localhost:8080'
+};
+
+Ejecución
+
+Para lanzar el servidor de desarrollo:
+
+Bash
 ng serve
-```
-
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
-
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
-
-```bash
-ng generate component component-name
-```
-
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
-
-```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+Navega a http://localhost:4200. La aplicación se recargará automáticamente si cambias alguno de los archivos fuente.
