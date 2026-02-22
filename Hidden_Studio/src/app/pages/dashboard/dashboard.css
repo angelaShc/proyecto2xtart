@@ -1,0 +1,136 @@
+.dashboard-container {
+  max-width: 100%;
+  margin: 20px auto;
+  margin-left: 5%;
+  margin-right: 5%;
+  padding: 20px;
+  background: rgba(20, 20, 20, 0.8);
+  border-radius: 15px;
+  border: 1px solid #333;
+  box-shadow: 0 10px 30px rgba(52, 38, 0, 0.7);
+}
+
+/* Encabezado */
+.dashboard-header h1 {
+  font-size: 2.5rem;
+  color: #fff;
+  margin-bottom: 20px;
+  margin-left: 5%;
+}
+
+.dashboard-header h1 span {
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 238, 0, 0.5);
+}
+
+.header-line {
+  height: 4px;
+  width: 10px;
+  background: #ffd900db;
+  margin-bottom: 20px;
+  margin-left: 5%;
+  border-radius: 2px;
+}
+
+/* Tabla */
+.table-responsive {
+  overflow-x: auto;
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 10px;
+  color: #e0e0e0;
+}
+
+.stats-table th {
+  padding: 15px;
+  text-align: left;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  color: #fdee8c;
+  letter-spacing: 1px;
+}
+
+.stats-row {
+  background: #1a1a1a;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.stats-row:hover {
+  background: #252525;
+  transform: scale(1.01);
+}
+
+.stats-row td {
+  padding: 20px 15px;
+}
+
+/* Redondeado de filas */
+.stats-row td:first-child { border-radius: 10px 0 0 10px; border-left: 3px solid #ffcc00c6; }
+.stats-row td:last-child { border-radius: 0 10px 10px 0; }
+
+/* Estilo de Celdas Específicas */
+.points {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.game-id {
+  font-family: 'Courier New', Courier, monospace;
+  color: #fdee8c;
+}
+
+/* Barra de Progreso Visual */
+.progress-cell {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  min-width: 200px;
+}
+
+.progress-bar-container {
+  flex: 1;
+  height: 8px;
+  background: #333;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #fffb00, #f06800);
+  box-shadow: 0 0 10px rgba(255, 238, 0, 0.5);
+}
+
+.progress-text {
+  font-size: 0.9rem;
+  font-weight: bold;
+  min-width: 40px;
+}
+
+/* Estado Vacío */
+.empty-state {
+  text-align: center;
+  padding: 50px;
+  color: #666;
+}
+
+.play-now-btn {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  padding: 10px 25px;
+  background: transparent;
+  border: 2px solid #ffdd0076;
+  color: #ffd000;
+  text-shadow: #fdee8c 0 0 1px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: 0.3s;
+}
+
+.play-now-btn:hover {
+  background: #504a0069;
+  color: #ffffff;
+}

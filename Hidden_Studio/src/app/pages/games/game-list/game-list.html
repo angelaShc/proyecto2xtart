@@ -1,0 +1,59 @@
+<div class="container">
+  <header class="catalog-header">
+    <h2>Catálogo de Juegos</h2>
+    <div class="divider"></div>
+  </header>
+  
+  <div class="game-grid">
+    @for (game of games; track $index) {
+      <div class="game-card" [routerLink]="['/games', game.id]">
+        <div class="card-image">
+          <img [src]="game.urlPortada" [alt]="game.titulo" title="{{ game.titulo }}"/>
+        </div>
+        <div class="card-info">
+          <h3>{{ game.titulo }}</h3>
+          <span class="genre-tag">{{ game.genero }}</span>
+        </div>
+        <div class="card-overlay">
+          <p class="game-description">{{ game.descripcion }}</p>
+          <div class="card-actions">
+            <button class="play-btn">VER JUEGO</button>
+            @if (authService.hasRole('ADMIN')) {
+              <button (click)="$event.stopPropagation(); eliminarJuego(game.id!)" class="btn-danger">ELIMINAR</button>
+            }
+          </div>
+        </div>
+      </div>
+    } @empty {
+      @for (i of [1,2]; track i) {
+        <div class="game-card skeleton">
+          <div class="card-image loading-bg"></div>
+          <div class="card-info">
+            <div class="skeleton-text title"></div>
+            <div class="skeleton-text subtitle"></div>
+          </div>
+        </div>
+      }
+    }
+  </div>
+
+  <div class="divider"></div>
+
+  <h2 class="rawg-title">Tendencias Globales (RAWG)</h2>
+
+  <div class="rawg-grid">
+    @for (externalGame of popularGames; track externalGame.id) {
+      <a [href]="'https://rawg.io/games/' + externalGame.slug" target="_blank" class="game-card external">
+        <div class="game-card external">
+          <div class="card-image">
+            <img [src]="externalGame.background_image" [alt]="externalGame.name" title="{{ externalGame.name }}"/>
+          </div>
+          <div class="card-info">
+            <h3>{{ externalGame.name }}</h3>
+            <span class="genre-tag">Rating: {{ externalGame.rating }}</span>
+          </div>
+        </div>
+      </a>
+    }
+
+</div>

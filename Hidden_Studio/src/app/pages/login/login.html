@@ -1,0 +1,33 @@
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-header">
+      <h2>Iniciar <span>Sesión</span></h2>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div class="input-group">
+        <label>Usuario</label>
+        <input formControlName="username" placeholder="Escribe tu usuario..." type="text">
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña</label>
+        <input formControlName="password" placeholder="••••••••" type="password">
+      </div>
+
+      <button type="submit" class="login-btn" [disabled]="loginForm.invalid">
+        Acceder al Sistema
+      </button>
+
+      @if (errorMessage) {
+        <div class="error-container">
+          <p class="error-message">{{ errorMessage }}</p>
+        </div>
+      }
+    </form>
+    
+    <div class="login-footer">
+      <p>¿No tienes cuenta? <a routerLink="/register">Registrarse</a></p>
+    </div>
+  </div>
+</div>

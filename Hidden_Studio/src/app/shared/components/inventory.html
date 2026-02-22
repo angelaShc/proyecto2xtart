@@ -1,0 +1,40 @@
+<div class="inventory-page">
+  <header class="inventory-header">
+    <h1>Mi Inventario</h1>
+    <p>Visualizarás tus objetos conseguidos en tus juegos!</p>
+  </header>
+
+  <hr class="divider">
+
+  <section class="admin-actions">
+    <button class="btn-add" (click)="aniadirItem()">
+      <span>+</span> Simular Hallazgo de Ítem
+    </button>
+  </section>
+
+  <div class="inventory-grid">
+    @for (item of inventario; track item.id) {
+      <div class="inventory-card">
+        <div class="card-icon">*</div>
+        <div class="card-content">
+          <h3 class="item-name">{{ item.nombre }}</h3>
+          <span class="game-badge">Juego: {{ item.juegoId }}</span>
+          <p class="item-detail">{{ item.detalle }}</p>
+        </div>
+        
+        <div class="card-footer">
+          <button class="btn-delete" (click)="eliminarItem(item.id)">
+            - Eliminar
+          </button>
+        </div>
+      </div>
+    } @empty {
+      <div class="empty-state">
+        <div class="empty-icon">🏜️</div>
+        <h2>Tu inventario está vacío</h2>
+        <p>Explora los juegos y completa desafíos para obtener objetos únicos.</p>
+        <button routerLink="/games" class="btn-primary">Ver Juegos</button>
+      </div>
+    }
+  </div>
+</div>
